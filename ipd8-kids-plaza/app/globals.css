@@ -6,13 +6,13 @@
 
   --ipd8-navy: #2b4b6c;
   --ipd8-blue: #00aaff;
-  --ipd8-pink: #ff0080;
+  --ipd8-pink: #f00070;
 
   --ipd8-navy-light: #eef4f9;
   --ipd8-blue-light: #eaf8ff;
   --ipd8-pink-light: #fff0f7;
 
-  --ipd8-gradient: linear-gradient(135deg, #ff0080 0%, #00aaff 100%);
+  --ipd8-gradient: linear-gradient(135deg, #f00070 0%, #00aaff 100%);
 }
 
 @theme inline {

@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  BadgeCheck,
-  Check,
-  Heart,
-  Sparkles,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, Check, Heart, PenLine, Sparkles, Star } from "lucide-react";
 import type { AgeResult } from "../../lib/calculateAge";
 
 type ResultScreenProps = {
@@ -160,7 +153,7 @@ export default function ResultScreen({
             </motion.div>
           </div>
 
-          <div className="grid gap-7 p-6 md:grid-cols-[1fr_280px] md:p-9">
+          <div className="grid gap-7 p-6 md:grid-cols-[1fr_320px] md:p-9">
             <div>
               <motion.div
                 initial={{ opacity: 0, x: -15 }}
@@ -236,69 +229,72 @@ export default function ResultScreen({
               )}
             </div>
 
-            <div className="flex flex-col items-center justify-center">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#204060]/50">
-                Dấu ấn của bé
-              </p>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col"
+            >
+              <div className="rounded-3xl border border-[#F00070]/15 bg-gradient-to-br from-[#fff0f7] via-white to-[#eaf8ff] p-5 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F00070]/10 text-[#F00070]">
+                    <PenLine size={22} />
+                  </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.4, rotate: -15 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 0.8,
-                  type: "spring",
-                  stiffness: 140,
-                  damping: 10,
-                }}
-                className="relative mt-5"
-              >
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#F00070]">
+                      Một món quà dành cho mẹ
+                    </p>
+
+                    <h2 className="mt-1 text-lg font-extrabold text-[#204060]">
+                      Giấy điều ước
+                    </h2>
+                  </div>
+                </div>
+
                 <motion.div
-                  animate={{
-                    scale: [1, 1.08, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                  }}
+                  initial={{ opacity: 0, scale: 0.92, rotate: -2 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
                   transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                    delay: 0.6,
+                    duration: 0.7,
+                    type: "spring",
+                    stiffness: 120,
                   }}
-                  className="absolute inset-0 rounded-full bg-[#F00070]/25 blur-2xl"
-                />
-
-                <div className="relative flex h-48 w-48 rotate-[-5deg] flex-col items-center justify-center rounded-full border-[7px] border-dashed border-[#F00070]/50 bg-gradient-to-br from-[#fff0f7] to-[#eaf8ff] shadow-xl">
+                  className="relative mt-5 overflow-hidden rounded-2xl bg-white p-2 shadow-xl shadow-[#204060]/10"
+                >
                   <motion.div
-                    animate={{ rotate: [0, 4, -4, 0] }}
+                    animate={{
+                      scale: [1, 1.03, 1],
+                      opacity: [0.12, 0.22, 0.12],
+                    }}
                     transition={{
-                      duration: 3,
+                      duration: 2.5,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#F00070] to-[#00A0F0] text-white shadow-lg shadow-[#F00070]/20"
-                  >
-                    <Heart size={38} fill="currentColor" />
-                  </motion.div>
+                    className="pointer-events-none absolute inset-0 rounded-2xl bg-[#F00070] blur-xl"
+                  />
 
-                  <p className="mt-3 text-xs font-bold uppercase tracking-wider text-[#F00070]">
-                    STAMP
+                  <img
+                    src="/giay-dieu-uoc.png"
+                    alt="Giấy điều ước"
+                    className="relative z-10 h-auto w-full rounded-xl object-contain"
+                  />
+                </motion.div>
+
+                <div className="mt-5 rounded-2xl bg-white/80 p-4 text-center">
+                  <p className="text-sm font-bold leading-6 text-[#204060]">
+                    Mẹ hãy viết một điều ước thật đặc biệt dành cho bé nhé!
                   </p>
 
-                  <p className="text-4xl font-black text-[#204060]">
-                    #{stage.stampNumber}
+                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                    Sau khi khám phá xong, mẹ sẽ nhận một tờ giấy điều ước bản
+                    thật tại quầy.
                   </p>
                 </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.85 }}
-                className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#204060]/70"
-              >
-                <BadgeCheck size={18} className="text-[#00A0F0]" />
-                Dấu ấn đã được mở khóa
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
 
           <div className="border-t border-slate-100 bg-[#eef4f9]/70 px-6 py-7 md:px-9">
@@ -306,32 +302,40 @@ export default function ResultScreen({
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9 }}
+                transition={{ delay: 0.85 }}
                 className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F00070]/10 text-[#F00070]"
               >
-                <Heart size={28} fill="currentColor" />
+                <PenLine size={28} />
               </motion.div>
 
               <h3 className="mt-4 text-xl font-extrabold text-[#204060]">
-                Dấu ấn đặc biệt của bé đã được mở khóa!
+                Viết một điều ước cho bé nhé!
               </h3>
 
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-                Mẹ hãy viết lời chúc dành cho bé và lấy stamp{" "}
-                <span className="font-bold text-[#F00070]">
-                  #{stage.stampNumber}
-                </span>{" "}
-                để dán lên “Bức tường 1.000 ngày của con”.
+                Mẹ hãy dành một chút thời gian viết điều ước cho hành trình lớn
+                lên của con. Tờ giấy điều ước sẽ được trao cho mẹ tại quầy.
               </p>
 
-              <motion.button
-                type="button"
-                whileTap={{ scale: 0.98 }}
-                onClick={onRestart}
-                className="mt-5 block w-full text-sm font-semibold text-[#204060]/60 transition-colors hover:text-[#F00070]"
-              >
-                Khám phá lại
-              </motion.button>
+              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onRestart}
+                  className="min-h-14 rounded-2xl border-2 border-[#F00070]/20 bg-white px-8 text-base font-bold text-[#F00070] transition-colors hover:bg-[#fff0f7]"
+                >
+                  KHÁM PHÁ LẠI
+                </motion.button>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#F00070] to-[#00A0F0] px-8 text-base font-bold text-white shadow-lg shadow-[#F00070]/20"
+                >
+                  <PenLine size={20} />
+                  NHẬN GIẤY ĐIỀU ƯỚC TẠI QUẦY
+                </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>
