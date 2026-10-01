@@ -6,7 +6,6 @@ import type { AgeResult } from "../../lib/calculateAge";
 
 type ResultScreenProps = {
   result: AgeResult;
-  onBack?: () => void;
   onRestart?: () => void;
 };
 
@@ -36,7 +35,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             onClick={onRestart}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-7 rounded-2xl bg-[#F00070] px-8 py-4 font-bold text-white shadow-lg shadow-[#F00070]/20"
+            className="mt-7 rounded-2xl bg-[#D90064] px-8 py-4 font-bold text-white shadow-lg shadow-[#D90064]/20"
           >
             KHÁM PHÁ LẠI
           </motion.button>
@@ -52,7 +51,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute left-[4%] top-[8%] text-[#f8c7df]"
+          className="absolute left-[4%] top-[8%] text-[#f5d3e2]"
           animate={{
             y: [0, -10, 0],
             rotate: [0, 8, 0],
@@ -82,7 +81,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-[7%] right-[5%] text-[#f9d8e8]"
+          className="absolute bottom-[7%] right-[5%] text-[#f5dce7]"
           animate={{
             y: [0, 8, 0],
             scale: [1, 1.06, 1],
@@ -103,9 +102,11 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="shrink-0 rounded-[24px] bg-gradient-to-r from-[#F00070] via-[#F00080] to-[#00A0F0] px-5 py-4 text-center text-white shadow-lg shadow-[#204060]/10 md:px-7 md:py-4"
+          className="relative shrink-0 overflow-hidden rounded-[24px] shadow-lg shadow-[#204060]/10"
         >
-          <div className="flex items-center justify-center gap-4 md:gap-6">
+          {/* 50% Pink - 50% Blue with soft transition */}
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#E04F88_0%,#E56A99_28%,#C5B4D1_55%,#55BCE9_78%,#00A0F0_100%)]" />
+          <div className="relative flex items-center justify-center gap-4 px-5 py-4 text-white md:gap-6 md:px-7 md:py-4">
             <motion.img
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -149,12 +150,12 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               className="rounded-[22px] bg-[#eef4f9] p-4 md:p-5"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F00070]/10 text-[#F00070]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
                   <Heart size={20} fill="currentColor" />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#F00070]">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                     Điều bé đang phát triển
                   </p>
 
@@ -174,9 +175,9 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="rounded-[22px] border border-[#F00070]/10 bg-gradient-to-br from-[#fff4f9] to-[#edfaff] p-4 md:p-5"
+              className="rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] to-[#edfaff] p-4 md:p-5"
             >
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[#F00070]">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                 Lời chúc dành cho bé
               </p>
 
@@ -193,7 +194,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 transition={{ delay: 0.4 }}
                 className="min-h-0 flex-1 rounded-[22px] border border-slate-100 bg-white p-4 shadow-sm md:p-5"
               >
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#F00070]">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                   Nội dung khám phá
                 </p>
 
@@ -225,15 +226,15 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             transition={{ delay: 0.3 }}
             className="flex min-h-0 flex-col"
           >
-            <div className="flex h-full flex-col rounded-[22px] border border-[#F00070]/10 bg-gradient-to-br from-[#fff4f9] via-white to-[#edfaff] p-4 shadow-sm md:p-5">
+            <div className="flex h-full flex-col rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] via-white to-[#edfaff] p-4 shadow-sm md:p-5">
               {/* Title */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F00070]/10 text-[#F00070]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
                   <PenLine size={20} />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#F00070]">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                     Một món quà dành cho mẹ
                   </p>
 
@@ -258,14 +259,14 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 <motion.div
                   animate={{
                     scale: [1, 1.03, 1],
-                    opacity: [0.08, 0.16, 0.08],
+                    opacity: [0.06, 0.12, 0.06],
                   }}
                   transition={{
                     duration: 2.5,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="pointer-events-none absolute inset-0 rounded-2xl bg-[#F00070] blur-xl"
+                  className="pointer-events-none absolute inset-0 rounded-2xl bg-[#D90064] blur-xl"
                 />
 
                 <img
@@ -298,7 +299,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
         >
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#F00070]/10 text-[#F00070]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
                 <PenLine size={18} />
               </div>
 
@@ -318,7 +319,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onRestart}
-              className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#F00070] to-[#00A0F0] px-5 text-xs font-extrabold text-white shadow-md shadow-[#F00070]/15 md:px-7 md:text-sm"
+              className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D90064] to-[#00A0F0] px-5 text-xs font-extrabold text-white shadow-md shadow-[#D90064]/15 md:px-7 md:text-sm"
             >
               KHÁM PHÁ LẠI
             </motion.button>

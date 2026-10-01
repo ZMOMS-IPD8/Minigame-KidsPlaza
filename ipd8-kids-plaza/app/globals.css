@@ -5,14 +5,21 @@
   --foreground: #2b4b6c;
 
   --ipd8-navy: #2b4b6c;
-  --ipd8-blue: #00aaff;
-  --ipd8-pink: #f00070;
+  --ipd8-blue: #00a0f0;
+  --ipd8-pink: #ec6f9f;
 
   --ipd8-navy-light: #eef4f9;
   --ipd8-blue-light: #eaf8ff;
-  --ipd8-pink-light: #fff4f9;
+  --ipd8-pink-light: #fff7fb;
 
-  --ipd8-gradient: linear-gradient(135deg, #f00070 0%, #00aaff 100%);
+  --ipd8-gradient: linear-gradient(
+    135deg,
+    #ec6f9f 0%,
+    #ee88ad 30%,
+    #b7b7d8 58%,
+    #55bce9 78%,
+    #00a0f0 100%
+  );
 }
 
 @theme inline {
