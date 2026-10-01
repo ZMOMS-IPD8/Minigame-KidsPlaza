@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   BadgeCheck,
   Check,
-  CreditCard,
   Heart,
   Sparkles,
   Star,
@@ -57,10 +56,7 @@ export default function ResultScreen({
     );
   }
 
-  const ageText =
-    result.unit === "week"
-      ? `Tuần thai ${result.value}`
-      : `${result.value} tháng tuổi`;
+  const ageText = `Ngày thứ ${result.value} trong hành trình 1.000 ngày`;
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fff7fb] via-white to-[#eef9ff] px-6 py-8">
@@ -138,7 +134,7 @@ export default function ResultScreen({
                 type: "spring",
               }}
               src="/logo-ipd8.png"
-              alt="IPD8 - Trung tâm 1.000 ngày vàng đầu đời"
+              alt="IPD8"
               className="mx-auto mb-5 h-auto w-[190px] object-contain md:w-[230px]"
             />
 
@@ -151,8 +147,10 @@ export default function ResultScreen({
                 Kết quả khám phá
               </p>
 
-              <h1 className="mt-2 text-3xl font-extrabold md:text-4xl">
-                Bé đang ở {ageText}
+              <h1 className="mt-2 text-3xl font-extrabold leading-tight md:text-4xl">
+                Bé đang ở
+                <br />
+                <span className="text-white">{ageText}</span>
               </h1>
 
               <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/85 md:text-base">
@@ -323,7 +321,7 @@ export default function ResultScreen({
                 <span className="font-bold text-[#F00070]">
                   #{stage.stampNumber}
                 </span>{" "}
-                để dán lên “Bức tường tuần tuổi của con”.
+                để dán lên “Bức tường 1.000 ngày của con”.
               </p>
 
               <motion.button

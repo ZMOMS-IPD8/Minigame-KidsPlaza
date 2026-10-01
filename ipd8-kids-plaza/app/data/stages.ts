@@ -3,7 +3,7 @@ export type Stage = {
   type: "pregnancy" | "baby";
   from: number;
   to: number;
-  unit: "week" | "month";
+  unit: "day";
   development: string;
   description: string;
   wish: string;
@@ -19,9 +19,9 @@ export const STAGES: Stage[] = [
   {
     id: "pregnancy-04-12",
     type: "pregnancy",
-    from: 4,
-    to: 12,
-    unit: "week",
+    from: 28,
+    to: 84,
+    unit: "day",
     development: "Hệ thần kinh nền tảng",
     description:
       "Não, tủy sống và các cơ quan nền tảng đang tạo lập; mẹ ăn đủ chất và bổ sung theo tư vấn y tế.",
@@ -40,9 +40,9 @@ export const STAGES: Stage[] = [
   {
     id: "pregnancy-13-17",
     type: "pregnancy",
-    from: 13,
-    to: 17,
-    unit: "week",
+    from: 85,
+    to: 119,
+    unit: "day",
     development: "Cử động và cảm nhận sớm",
     description:
       "Bé đã cử động từ sớm; nhiều mẹ bắt đầu cảm nhận những chuyển động đầu tiên của con.",
@@ -59,9 +59,9 @@ export const STAGES: Stage[] = [
   {
     id: "pregnancy-18-27",
     type: "pregnancy",
-    from: 18,
-    to: 27,
-    unit: "week",
+    from: 120,
+    to: 189,
+    unit: "day",
     development: "Thính giác",
     description:
       "Bé dần nghe được âm thanh; mẹ có thể trò chuyện và hát nhẹ nhàng cùng con.",
@@ -75,9 +75,9 @@ export const STAGES: Stage[] = [
   {
     id: "pregnancy-28-42",
     type: "pregnancy",
-    from: 28,
-    to: 42,
-    unit: "week",
+    from: 190,
+    to: 280,
+    unit: "day",
     development: "Não bộ và âm thanh quen thuộc",
     description:
       "Não bé phát triển nhanh; bé dần nhận biết những âm thanh quen thuộc, nhất là giọng mẹ.",
@@ -97,9 +97,9 @@ export const STAGES: Stage[] = [
   {
     id: "baby-0-3",
     type: "baby",
-    from: 0,
-    to: 3,
-    unit: "month",
+    from: 281,
+    to: 371,
+    unit: "day",
     development: "Giác quan và gắn kết",
     description:
       "Bé học qua ánh mắt, giọng nói và cái ôm; ba mẹ đáp lại con sẽ nuôi dưỡng sự gắn kết.",
@@ -118,9 +118,9 @@ export const STAGES: Stage[] = [
   {
     id: "baby-4-6",
     type: "baby",
-    from: 4,
-    to: 6,
-    unit: "month",
+    from: 372,
+    to: 463,
+    unit: "day",
     development: "Vận động và cầm nắm",
     description:
       "Bé dần lẫy, với và cầm đồ vật; hãy cho bé nằm sấp chơi khi thức và có người quan sát.",
@@ -134,9 +134,9 @@ export const STAGES: Stage[] = [
   {
     id: "baby-7-12",
     type: "baby",
-    from: 7,
-    to: 12,
-    unit: "month",
+    from: 464,
+    to: 645,
+    unit: "day",
     development: "Di chuyển và khám phá",
     description:
       "Bé tự di chuyển theo cách riêng, vịn đứng và tìm đồ vật bị giấu; hãy tạo không gian an toàn cho con khám phá.",
@@ -154,9 +154,9 @@ export const STAGES: Stage[] = [
   {
     id: "baby-13-18",
     type: "baby",
-    from: 13,
-    to: 18,
-    unit: "month",
+    from: 646,
+    to: 828,
+    unit: "day",
     development: "Ngôn ngữ và bắt chước",
     description:
       "Bé hiểu từ quen thuộc, bắt chước người lớn và bắt đầu dùng từ để giao tiếp.",
@@ -170,9 +170,9 @@ export const STAGES: Stage[] = [
   {
     id: "baby-19-48",
     type: "baby",
-    from: 19,
-    to: 48,
-    unit: "month",
+    from: 829,
+    to: 1000,
+    unit: "day",
     development: "Ngôn ngữ và giao tiếp chủ động",
     description:
       "Bé dùng nhiều từ hơn, có thể ghép hai từ để diễn đạt nhu cầu; hãy lắng nghe và trò chuyện cùng con mỗi ngày.",
