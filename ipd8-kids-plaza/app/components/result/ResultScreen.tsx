@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
+  BadgeCheck,
   Check,
-  Gift,
+  CreditCard,
   Heart,
-  Play,
   Sparkles,
   Star,
 } from "lucide-react";
@@ -29,7 +29,13 @@ export default function ResultScreen({
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#fff8fb] px-6">
         <div className="w-full max-w-xl rounded-[32px] bg-white p-10 text-center shadow-xl">
-          <h1 className="text-2xl font-bold text-slate-800">
+          <img
+            src="/logo-ipd8.png"
+            alt="IPD8"
+            className="mx-auto mb-8 h-auto w-[220px] object-contain"
+          />
+
+          <h1 className="text-2xl font-bold text-[#204060]">
             Chưa tìm thấy giai đoạn phù hợp
           </h1>
 
@@ -37,13 +43,15 @@ export default function ResultScreen({
             Mẹ hãy kiểm tra lại thông tin ngày đã nhập nhé.
           </p>
 
-          <button
+          <motion.button
             type="button"
             onClick={onBack}
-            className="mt-7 rounded-2xl bg-pink-500 px-8 py-4 font-bold text-white"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="mt-7 rounded-2xl bg-[#F00070] px-8 py-4 font-bold text-white shadow-lg shadow-[#F00070]/20"
           >
             NHẬP LẠI
-          </button>
+          </motion.button>
         </div>
       </main>
     );
@@ -55,10 +63,10 @@ export default function ResultScreen({
       : `${result.value} tháng tuổi`;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fff7fb] via-white to-[#fff8e9] px-6 py-8">
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fff7fb] via-white to-[#eef9ff] px-6 py-8">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute left-[6%] top-[12%] text-pink-200"
+          className="absolute left-[6%] top-[12%] text-[#f7b8d5]"
           animate={{
             y: [0, -12, 0],
             rotate: [0, 8, 0],
@@ -69,11 +77,11 @@ export default function ResultScreen({
             ease: "easeInOut",
           }}
         >
-          <Sparkles size={44} />
+          <Sparkles size={44} strokeWidth={1.5} />
         </motion.div>
 
         <motion.div
-          className="absolute right-[8%] top-[18%] text-amber-200"
+          className="absolute right-[8%] top-[18%] text-[#8bdcff]"
           animate={{
             scale: [1, 1.12, 1],
             rotate: [0, -10, 0],
@@ -84,11 +92,11 @@ export default function ResultScreen({
             ease: "easeInOut",
           }}
         >
-          <Star size={42} fill="currentColor" />
+          <Star size={42} fill="currentColor" strokeWidth={1.5} />
         </motion.div>
 
         <motion.div
-          className="absolute bottom-[12%] right-[10%] text-rose-200"
+          className="absolute bottom-[12%] right-[10%] text-[#ffd2e8]"
           animate={{
             y: [0, 10, 0],
             scale: [1, 1.08, 1],
@@ -99,7 +107,7 @@ export default function ResultScreen({
             ease: "easeInOut",
           }}
         >
-          <Heart size={48} fill="currentColor" />
+          <Heart size={48} fill="currentColor" strokeWidth={1.5} />
         </motion.div>
       </div>
 
@@ -108,7 +116,7 @@ export default function ResultScreen({
           type="button"
           whileTap={{ scale: 0.96 }}
           onClick={onBack}
-          className="mb-5 flex min-h-12 items-center gap-2 rounded-xl px-4 text-sm font-semibold text-slate-500 transition-colors hover:bg-white hover:text-pink-500"
+          className="mb-5 flex min-h-12 items-center gap-2 rounded-xl px-4 text-sm font-semibold text-[#204060] transition-colors hover:bg-white"
         >
           <ArrowLeft size={20} />
           Nhập lại thông tin
@@ -117,35 +125,41 @@ export default function ResultScreen({
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-          className="overflow-hidden rounded-[32px] border border-white/80 bg-white/95 shadow-2xl shadow-pink-100/60 backdrop-blur"
+          transition={{ duration: 0.65, ease: "easeOut" }}
+          className="overflow-hidden rounded-[32px] border border-white/80 bg-white/95 shadow-2xl shadow-[#204060]/10 backdrop-blur"
         >
-          <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 px-7 py-8 text-center text-white md:px-10">
-            <motion.div
-              initial={{ scale: 0.7, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+          <div className="bg-gradient-to-r from-[#F00070] via-[#F00080] to-[#00A0F0] px-7 py-8 text-center text-white md:px-10">
+            <motion.img
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{
-                delay: 0.15,
+                delay: 0.1,
                 duration: 0.6,
                 type: "spring",
               }}
-              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20"
+              src="/logo-ipd8.png"
+              alt="IPD8 - Trung tâm 1.000 ngày vàng đầu đời"
+              className="mx-auto mb-5 h-auto w-[190px] object-contain md:w-[230px]"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
             >
-              <Sparkles size={32} />
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+                Kết quả khám phá
+              </p>
+
+              <h1 className="mt-2 text-3xl font-extrabold md:text-4xl">
+                Bé đang ở {ageText}
+              </h1>
+
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/85 md:text-base">
+                Mỗi giai đoạn đều có một điều thật đặc biệt đang diễn ra trong
+                hành trình lớn lên của con.
+              </p>
             </motion.div>
-
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-pink-100">
-              Kết quả khám phá
-            </p>
-
-            <h1 className="mt-2 text-3xl font-extrabold md:text-4xl">
-              Bé đang ở {ageText}
-            </h1>
-
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-pink-50 md:text-base">
-              Mỗi giai đoạn đều có một điều thật đặc biệt đang diễn ra trong
-              hành trình lớn lên của con.
-            </p>
           </div>
 
           <div className="grid gap-7 p-6 md:grid-cols-[1fr_280px] md:p-9">
@@ -154,19 +168,19 @@ export default function ResultScreen({
                 initial={{ opacity: 0, x: -15 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="rounded-3xl bg-slate-50 p-6"
+                className="rounded-3xl bg-[#eef4f9] p-6"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-pink-100 text-pink-500">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F00070]/10 text-[#F00070]">
                     <Heart size={22} fill="currentColor" />
                   </div>
 
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-pink-500">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#F00070]">
                       Điều bé đang phát triển
                     </p>
 
-                    <h2 className="mt-1 text-xl font-extrabold text-slate-800">
+                    <h2 className="mt-1 text-xl font-extrabold text-[#204060]">
                       {stage.development}
                     </h2>
                   </div>
@@ -181,13 +195,13 @@ export default function ResultScreen({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45 }}
-                className="mt-5 rounded-3xl border border-pink-100 bg-gradient-to-br from-pink-50 to-rose-50 p-6"
+                className="mt-5 rounded-3xl border border-[#F00070]/15 bg-gradient-to-br from-[#fff0f7] to-[#eaf8ff] p-6"
               >
-                <p className="text-xs font-bold uppercase tracking-wider text-pink-500">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#F00070]">
                   Lời chúc dành cho bé
                 </p>
 
-                <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-800">
+                <h2 className="mt-3 text-2xl font-extrabold leading-tight text-[#204060]">
                   “{stage.wish}”
                 </h2>
               </motion.div>
@@ -199,7 +213,7 @@ export default function ResultScreen({
                   transition={{ delay: 0.55 }}
                   className="mt-5 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm"
                 >
-                  <p className="text-xs font-bold uppercase tracking-wider text-pink-500">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#F00070]">
                     Nội dung khám phá
                   </p>
 
@@ -207,11 +221,11 @@ export default function ResultScreen({
                     {stage.extraContent.map((item) => (
                       <div
                         key={item}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 px-4 py-3"
+                        className="flex items-start gap-3 rounded-xl bg-[#eef4f9] px-4 py-3"
                       >
                         <Check
                           size={18}
-                          className="mt-0.5 shrink-0 text-pink-500"
+                          className="mt-0.5 shrink-0 text-[#00A0F0]"
                         />
 
                         <span className="text-sm leading-6 text-slate-600">
@@ -222,47 +236,10 @@ export default function ResultScreen({
                   </div>
                 </motion.div>
               )}
-
-              {stage.clip && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.65 }}
-                  className="mt-5 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
-                      <Play size={20} fill="currentColor" />
-                    </div>
-
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                        Clip khám phá
-                      </p>
-
-                      <p className="mt-1 text-sm font-semibold text-slate-700">
-                        {stage.clip.title}
-                      </p>
-                    </div>
-                  </div>
-
-                  {stage.clip.url && (
-                    <a
-                      href={stage.clip.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-3 text-sm font-bold text-white"
-                    >
-                      XEM CLIP
-                      <Play size={16} fill="currentColor" />
-                    </a>
-                  )}
-                </motion.div>
-              )}
             </div>
 
             <div className="flex flex-col items-center justify-center">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#204060]/50">
                 Dấu ấn của bé
               </p>
 
@@ -281,17 +258,17 @@ export default function ResultScreen({
                 <motion.div
                   animate={{
                     scale: [1, 1.08, 1],
-                    opacity: [0.25, 0.45, 0.25],
+                    opacity: [0.2, 0.4, 0.2],
                   }}
                   transition={{
                     duration: 2.2,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 rounded-full bg-pink-300 blur-2xl"
+                  className="absolute inset-0 rounded-full bg-[#F00070]/25 blur-2xl"
                 />
 
-                <div className="relative flex h-48 w-48 rotate-[-5deg] flex-col items-center justify-center rounded-full border-[7px] border-dashed border-pink-300 bg-gradient-to-br from-pink-50 to-amber-50 shadow-xl">
+                <div className="relative flex h-48 w-48 rotate-[-5deg] flex-col items-center justify-center rounded-full border-[7px] border-dashed border-[#F00070]/50 bg-gradient-to-br from-[#fff0f7] to-[#eaf8ff] shadow-xl">
                   <motion.div
                     animate={{ rotate: [0, 4, -4, 0] }}
                     transition={{
@@ -299,16 +276,16 @@ export default function ResultScreen({
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="flex h-20 w-20 items-center justify-center rounded-full bg-pink-500 text-white shadow-lg shadow-pink-200"
+                    className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#F00070] to-[#00A0F0] text-white shadow-lg shadow-[#F00070]/20"
                   >
                     <Heart size={38} fill="currentColor" />
                   </motion.div>
 
-                  <p className="mt-3 text-xs font-bold uppercase tracking-wider text-pink-500">
+                  <p className="mt-3 text-xs font-bold uppercase tracking-wider text-[#F00070]">
                     STAMP
                   </p>
 
-                  <p className="text-4xl font-black text-slate-800">
+                  <p className="text-4xl font-black text-[#204060]">
                     #{stage.stampNumber}
                   </p>
                 </div>
@@ -318,55 +295,45 @@ export default function ResultScreen({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.85 }}
-                className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-500"
+                className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#204060]/70"
               >
-                <Check size={18} className="text-green-500" />
+                <BadgeCheck size={18} className="text-[#00A0F0]" />
                 Dấu ấn đã được mở khóa
               </motion.div>
             </div>
           </div>
 
-          <div className="border-t border-slate-100 bg-slate-50/80 px-6 py-7 md:px-9">
+          <div className="border-t border-slate-100 bg-[#eef4f9]/70 px-6 py-7 md:px-9">
             <div className="mx-auto max-w-3xl text-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9 }}
-                className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-600"
+                className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F00070]/10 text-[#F00070]"
               >
-                <Gift size={28} />
+                <Heart size={28} fill="currentColor" />
               </motion.div>
 
-              <h3 className="mt-4 text-xl font-extrabold text-slate-800">
-                Cùng lưu lại dấu ấn đặc biệt này nhé!
+              <h3 className="mt-4 text-xl font-extrabold text-[#204060]">
+                Dấu ấn đặc biệt của bé đã được mở khóa!
               </h3>
 
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-                Mẹ hãy viết lời chúc dành cho bé, lấy stamp tương ứng và dán lên
-                “Bức tường tuần tuổi của con” để nhận CDB Card cùng ưu đãi
-                300.000đ.
+                Mẹ hãy viết lời chúc dành cho bé và lấy stamp{" "}
+                <span className="font-bold text-[#F00070]">
+                  #{stage.stampNumber}
+                </span>{" "}
+                để dán lên “Bức tường tuần tuổi của con”.
               </p>
 
-              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-                <motion.button
-                  type="button"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={onRestart}
-                  className="min-h-14 rounded-2xl border-2 border-pink-200 bg-white px-8 text-base font-bold text-pink-500"
-                >
-                  KHÁM PHÁ LẠI
-                </motion.button>
-
-                <motion.button
-                  type="button"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="min-h-14 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 px-8 text-base font-bold text-white shadow-lg shadow-pink-200/60"
-                >
-                  NHẬN QUÀ TẠI QUẦY
-                </motion.button>
-              </div>
+              <motion.button
+                type="button"
+                whileTap={{ scale: 0.98 }}
+                onClick={onRestart}
+                className="mt-5 block w-full text-sm font-semibold text-[#204060]/60 transition-colors hover:text-[#F00070]"
+              >
+                Khám phá lại
+              </motion.button>
             </div>
           </div>
         </motion.div>
