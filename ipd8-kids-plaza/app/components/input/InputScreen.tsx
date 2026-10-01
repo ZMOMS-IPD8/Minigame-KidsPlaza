@@ -16,18 +16,74 @@ type InputScreenProps = {
   onResult?: (result: ReturnType<typeof calculateAge>) => void;
 };
 
+function formatDateInput(value: string) {
+  const numbers = value.replace(/\D/g, "").slice(0, 8);
+
+  if (numbers.length <= 2) {
+    return numbers;
+  }
+
+  if (numbers.length <= 4) {
+    return `${numbers.slice(0, 2)}/${numbers.slice(2)}`;
+  }
+
+  return `${numbers.slice(0, 2)}/${numbers.slice(2, 4)}/${numbers.slice(4)}`;
+}
+
+function parseDateInput(value: string): Date | null {
+  const match = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const year = Number(match[3]);
+
+  const date = new Date(year, month - 1, day);
+
+  // Kiểm tra ngày có thực sự hợp lệ hay không
+  // Ví dụ: 31/02/2026 sẽ bị loại.
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+
+  return date;
+}
+
 export default function InputScreen({ onBack, onResult }: InputScreenProps) {
   const [dateType, setDateType] = useState<DateType>("due_date");
   const [date, setDate] = useState("");
   const [error, setError] = useState("");
 
+  const handleDateChange = (value: string) => {
+    setDate(formatDateInput(value));
+    setError("");
+  };
+
   const handleSubmit = () => {
     if (!date) {
-      setError("Mẹ vui lòng chọn ngày nhé.");
+      setError("Mẹ vui lòng nhập ngày nhé.");
       return;
     }
 
-    const inputDate = new Date(`${date}T00:00:00`);
+    if (date.length !== 10) {
+      setError("Mẹ vui lòng nhập đúng định dạng DD/MM/YYYY.");
+      return;
+    }
+
+    const inputDate = parseDateInput(date);
+
+    if (!inputDate) {
+      setError("Ngày mẹ nhập chưa đúng. Mẹ kiểm tra lại nhé.");
+      return;
+    }
+
     const result = calculateAge(inputDate, dateType, new Date());
 
     if (!result.isValid) {
@@ -81,7 +137,7 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
             </h1>
 
             <p className="mt-3 text-slate-500">
-              Mẹ chọn thông tin phù hợp để khám phá dấu ấn của bé nhé.
+              Mẹ chọn thông tin phù hợp để khám phá hành trình của bé nhé.
             </p>
           </div>
 
@@ -134,15 +190,32 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
                 : "Ngày sinh của bé"}
             </label>
 
-            <input
-              type="date"
-              value={date}
-              onChange={(event) => {
-                setDate(event.target.value);
-                setError("");
-              }}
-              className="h-14 w-full rounded-2xl border-2 border-slate-200 bg-white px-4 text-base font-semibold text-[#204060] outline-none transition focus:border-[#f00070] focus:ring-4 focus:ring-[#f00070]/10"
-            />
+            <div className="relative">
+              <CalendarDays
+                size={22}
+                className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#f00070]"
+              />
+
+              <input
+                type="text"
+                inputMode="numeric"
+                autoComplete="off"
+                value={date}
+                onChange={(event) => handleDateChange(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    handleSubmit();
+                  }
+                }}
+                placeholder="DD/MM/YYYY"
+                maxLength={10}
+                className="h-14 w-full rounded-2xl border-2 border-slate-200 bg-white pl-12 pr-4 text-base font-semibold tracking-wide text-[#204060] outline-none transition placeholder:text-slate-300 focus:border-[#f00070] focus:ring-4 focus:ring-[#f00070]/10"
+              />
+            </div>
+
+            <p className="mt-2 text-xs text-slate-400">
+              Nhập theo định dạng ngày/tháng/năm, ví dụ: 26/09/2026
+            </p>
           </div>
 
           {error && (
