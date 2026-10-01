@@ -104,9 +104,18 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           transition={{ duration: 0.5 }}
           className="relative shrink-0 overflow-hidden rounded-[24px] shadow-lg shadow-[#204060]/10"
         >
-          {/* 50% Pink - 50% Blue with soft transition */}
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,#E04F88_0%,#E56A99_28%,#C5B4D1_55%,#55BCE9_78%,#00A0F0_100%)]" />
-          <div className="relative flex items-center justify-center gap-4 px-5 py-4 text-white md:gap-6 md:px-7 md:py-4">
+          {/* Background image */}
+          <img
+            src="/background.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+
+          {/* Soft overlay giúp nội dung header dễ đọc */}
+          <div className="absolute inset-0 bg-[#204060]/15" />
+
+          <div className="relative flex items-center justify-center gap-4 px-5 py-4 md:gap-6 md:px-7 md:py-4">
             <motion.img
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -119,18 +128,18 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               className="h-auto w-[120px] object-contain md:w-[145px]"
             />
 
-            <div className="h-10 w-px bg-white/30" />
+            <div className="h-10 w-px bg-[#204060]/20" />
 
             <div className="text-left">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/80 md:text-xs">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D90064] md:text-xs">
                 Kết quả khám phá
               </p>
 
-              <h1 className="mt-0.5 text-xl font-extrabold leading-tight md:text-2xl">
-                Bé đang ở <span className="text-white">{ageText}</span>
+              <h1 className="mt-0.5 text-xl font-extrabold leading-tight text-[#204060] md:text-2xl">
+                Bé đang ở <span className="text-[#D90064]">{ageText}</span>
               </h1>
 
-              <p className="mt-1 hidden text-xs text-white/80 md:block">
+              <p className="mt-1 hidden text-xs text-[#204060]/70 md:block">
                 Mỗi giai đoạn đều có một điều thật đặc biệt đang diễn ra trong
                 hành trình lớn lên của con.
               </p>
