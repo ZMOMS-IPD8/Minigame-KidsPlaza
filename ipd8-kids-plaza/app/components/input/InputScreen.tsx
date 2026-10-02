@@ -43,7 +43,7 @@ function parseDateInput(value: string): Date | null {
 
   const date = new Date(year, month - 1, day);
 
-  // Kiểm tra ngày có thực sự hợp lệ hay không
+  // Kiểm tra ngày có thực sự hợp lệ hay không.
   // Ví dụ: 31/02/2026 sẽ bị loại.
   if (
     date.getFullYear() !== year ||
@@ -98,6 +98,7 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#fff7fb] via-white to-[#eef9ff] px-6 py-8">
       <div className="mx-auto w-full max-w-3xl">
+        {/* Back */}
         <motion.button
           type="button"
           onClick={onBack}
@@ -108,6 +109,7 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
           Quay lại
         </motion.button>
 
+        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -121,12 +123,17 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
           />
         </motion.div>
 
+        {/* Main card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
+          transition={{
+            delay: 0.1,
+            duration: 0.6,
+          }}
           className="rounded-[32px] border border-white bg-white/95 p-7 shadow-xl shadow-[#204060]/10 backdrop-blur md:p-10"
         >
+          {/* Heading */}
           <div className="text-center">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#f00070]/10 text-[#f00070]">
               <Sparkles size={32} />
@@ -141,7 +148,9 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
             </p>
           </div>
 
+          {/* Date type */}
           <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {/* Due date */}
             <button
               type="button"
               onClick={() => {
@@ -161,6 +170,7 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
               <p className="mt-1 text-sm text-slate-500">Mẹ đang mang thai</p>
             </button>
 
+            {/* Birth date */}
             <button
               type="button"
               onClick={() => {
@@ -183,6 +193,7 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
             </button>
           </div>
 
+          {/* Date input */}
           <div className="mt-7">
             <label className="mb-3 block text-sm font-bold text-[#204060]">
               {dateType === "due_date"
@@ -218,16 +229,24 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
             </p>
           </div>
 
+          {/* Error */}
           {error && (
             <motion.p
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: -5,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-500"
             >
               {error}
             </motion.p>
           )}
 
+          {/* Submit */}
           <motion.button
             type="button"
             onClick={handleSubmit}
@@ -235,7 +254,9 @@ export default function InputScreen({ onBack, onResult }: InputScreenProps) {
               scale: 1.01,
               boxShadow: "0 16px 32px rgba(240, 0, 112, 0.2)",
             }}
-            whileTap={{ scale: 0.98 }}
+            whileTap={{
+              scale: 0.98,
+            }}
             className="mt-7 flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#f00070] to-[#00a0f0] px-6 text-base font-extrabold text-white shadow-lg shadow-[#f00070]/20"
           >
             KHÁM PHÁ NGAY

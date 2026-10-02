@@ -104,7 +104,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           transition={{ duration: 0.5 }}
           className="relative shrink-0 overflow-hidden rounded-[24px] shadow-lg shadow-[#204060]/10"
         >
-          {/* Background image */}
           <img
             src="/background.png"
             alt=""
@@ -112,7 +111,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          {/* Soft overlay giúp nội dung header dễ đọc */}
           <div className="absolute inset-0 bg-[#204060]/15" />
 
           <div className="relative flex items-center justify-center gap-4 px-5 py-4 md:gap-6 md:px-7 md:py-4">
@@ -148,15 +146,15 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
         </motion.div>
 
         {/* Main content */}
-        <div className="grid flex-1 gap-4 py-4 md:grid-cols-[1fr_320px] md:gap-5 md:py-4">
-          {/* LEFT */}
+        <div className="grid flex-1 min-h-0 gap-4 py-4 md:grid-cols-[1fr_320px] md:gap-5 md:py-4">
+          {/* LEFT COLUMN */}
           <div className="flex min-h-0 flex-col gap-3">
             {/* Development */}
             <motion.div
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="rounded-[22px] bg-[#eef4f9] p-4 md:p-5"
+              className="shrink-0 rounded-[22px] bg-[#eef4f9] p-4 md:p-5"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
@@ -184,7 +182,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] to-[#edfaff] p-4 md:p-5"
+              className="shrink-0 rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] to-[#edfaff] p-4 md:p-5"
             >
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                 Lời chúc dành cho bé
@@ -201,7 +199,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="min-h-0 flex-1 rounded-[22px] border border-slate-100 bg-white p-4 shadow-sm md:p-5"
+                className="shrink-0 rounded-[22px] border border-slate-100 bg-white p-4 shadow-sm md:p-5"
               >
                 <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
                   Nội dung khám phá
@@ -226,18 +224,54 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 </div>
               </motion.div>
             )}
+
+            {/* Footer CTA - nằm trong LEFT COLUMN */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="mt-auto shrink-0 rounded-[20px] border border-slate-100 bg-[#eef4f9]/80 px-4 py-3"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
+                    <PenLine size={18} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-extrabold text-[#204060] md:text-base">
+                      Viết một điều ước cho bé nhé!
+                    </h3>
+
+                    <p className="hidden text-xs text-slate-500 md:block">
+                      Tờ giấy điều ước sẽ được trao cho mẹ tại quầy.
+                    </p>
+                  </div>
+                </div>
+
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onRestart}
+                  className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D90064] to-[#00A0F0] px-5 text-xs font-extrabold text-white shadow-md shadow-[#D90064]/15 md:px-7 md:text-sm"
+                >
+                  KHÁM PHÁ LẠI
+                </motion.button>
+              </div>
+            </motion.div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT COLUMN - GIẤY ĐIỀU ƯỚC FULL HEIGHT */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex min-h-0 flex-col"
+            className="flex min-h-0 h-full flex-col"
           >
-            <div className="flex h-full flex-col rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] via-white to-[#edfaff] p-4 shadow-sm md:p-5">
+            <div className="flex h-full min-h-0 flex-col rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] via-white to-[#edfaff] p-4 shadow-sm md:p-5">
               {/* Title */}
-              <div className="flex items-center gap-3">
+              <div className="shrink-0 flex items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
                   <PenLine size={20} />
                 </div>
@@ -281,12 +315,12 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 <img
                   src="/giay-dieu-uoc.png"
                   alt="Giấy điều ước"
-                  className="relative z-10 max-h-[300px] w-full object-contain md:max-h-[320px]"
+                  className="relative z-10 max-h-[calc(100vh-260px)] w-full object-contain md:max-h-[calc(100vh-250px)]"
                 />
               </motion.div>
 
               {/* Description */}
-              <div className="mt-3 rounded-xl bg-white/80 px-3 py-2.5 text-center">
+              <div className="mt-3 shrink-0 rounded-xl bg-white/80 px-3 py-2.5 text-center">
                 <p className="text-xs font-bold leading-5 text-[#204060]">
                   Mẹ hãy viết một điều ước thật đặc biệt dành cho bé nhé!
                 </p>
@@ -298,42 +332,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             </div>
           </motion.div>
         </div>
-
-        {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55 }}
-          className="shrink-0 rounded-[20px] border-t border-slate-100 bg-[#eef4f9]/80 px-4 py-3"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
-                <PenLine size={18} />
-              </div>
-
-              <div>
-                <h3 className="text-sm font-extrabold text-[#204060] md:text-base">
-                  Viết một điều ước cho bé nhé!
-                </h3>
-
-                <p className="hidden text-xs text-slate-500 md:block">
-                  Tờ giấy điều ước sẽ được trao cho mẹ tại quầy.
-                </p>
-              </div>
-            </div>
-
-            <motion.button
-              type="button"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onRestart}
-              className="flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D90064] to-[#00A0F0] px-5 text-xs font-extrabold text-white shadow-md shadow-[#D90064]/15 md:px-7 md:text-sm"
-            >
-              KHÁM PHÁ LẠI
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </main>
   );

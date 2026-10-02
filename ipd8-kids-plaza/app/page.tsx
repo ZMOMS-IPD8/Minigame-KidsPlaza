@@ -35,13 +35,7 @@ export default function Home() {
   }
 
   if (screen === "result" && result) {
-    return (
-      <ResultScreen
-        result={result}
-        onBack={handleBackToInput}
-        onRestart={handleBackToHome}
-      />
-    );
+    return <ResultScreen result={result} onRestart={handleBackToHome} />;
   }
 
   return <HomeScreen onStart={handleStart} />;

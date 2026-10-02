@@ -28,15 +28,11 @@ export const STAGES: Stage[] = [
     wish: "DINH DƯỠNG TUYỆT VỜI NHẤT",
     stampNumber: 5,
     clip: {
-      title: "Eating Well in Pregnancy – Plus the Right Vitamins",
+      title: "Để có một thai kỳ khoẻ đẹp",
     },
-    extraContent: [
-      "Để có 1 thai kỳ khoẻ mạnh",
-      "Ăn dặm kiểu Nhật",
-      "Món ăn bổ dưỡng cho thai phụ: cá chép hầm đậu đỏ",
-      "Món ăn giúp an thai: gà ác tiềm ngải cứu",
-    ],
+    extraContent: ["Playlist nhạc thai giáo 35'"],
   },
+
   {
     id: "pregnancy-13-17",
     type: "pregnancy",
@@ -49,13 +45,11 @@ export const STAGES: Stage[] = [
     wish: "SỰ CHĂM SÓC KHOA HỌC NHẤT",
     stampNumber: 8,
     clip: {
-      title: "Pregnancy Facts | Growing Baby Stages",
+      title: "Các phương pháp thai giáo giúp bé thông minh",
     },
-    extraContent: [
-      "Các phương pháp thai giáo giúp bé thông minh",
-      "Những điều nên tránh khi thực hành thai giáo",
-    ],
+    extraContent: ["Playlist nhạc thai giáo 35'"],
   },
+
   {
     id: "pregnancy-18-27",
     type: "pregnancy",
@@ -68,10 +62,11 @@ export const STAGES: Stage[] = [
     wish: "THÍNH GIÁC TINH ANH NHẤT",
     stampNumber: 9,
     clip: {
-      title: "What can my baby understand and feel in the womb?",
+      title: "Thai giáo bằng âm thanh",
     },
-    extraContent: ["3 bài nhạc thai giáo"],
+    extraContent: ["Playlist nhạc thai giáo 35'"],
   },
+
   {
     id: "pregnancy-28-42",
     type: "pregnancy",
@@ -84,16 +79,11 @@ export const STAGES: Stage[] = [
     wish: "TRÍ TUỆ TUYỆT VỜI NHẤT",
     stampNumber: 3,
     clip: {
-      title: "Mom’s Voice Inspires Learning in the Womb",
+      title: "Chuẩn bị cho ngày vượt cạn",
     },
-    extraContent: [
-      "Dưỡng thai đúng cách",
-      "Vượt cạn an toàn",
-      "Chuẩn bị cho ngày vượt cạn",
-      "Kỹ năng hít thở để đỡ đau khi chuyển dạ",
-      "Khi đi sinh bạn cần mang những gì",
-    ],
+    extraContent: ["Playlist nhạc thai giáo 35'"],
   },
+
   {
     id: "baby-0-3",
     type: "baby",
@@ -106,15 +96,11 @@ export const STAGES: Stage[] = [
     wish: "KHOẢNH KHẮC TUYỆT VỜI NHẤT",
     stampNumber: 2,
     clip: {
-      title: "Serve & Return Interaction Shapes Brain Circuitry",
+      title: "Chăm sóc bé 1 tháng tuổi",
     },
-    extraContent: [
-      "Chăm sóc bé 1 tháng tuổi",
-      "Giải mã tiếng khóc của bé",
-      "Cách tắm và chăm sóc rốn bé",
-      "Chăm sóc giấc ngủ của bé",
-    ],
+    extraContent: ["Giải mã tiếng khóc của bé", "Playlist nhạc cho bé 24'"],
   },
+
   {
     id: "baby-4-6",
     type: "baby",
@@ -127,10 +113,11 @@ export const STAGES: Stage[] = [
     wish: "SỰ PHÁT TRIỂN TUYỆT VỜI NHẤT",
     stampNumber: 1,
     clip: {
-      title: "Tummy time for babies",
+      title: "Chăm sóc bé sau 6 tháng tuổi",
     },
-    extraContent: ["Chăm sóc bé sau 6 tháng tuổi", "Kỹ năng đầu đời của bé"],
+    extraContent: ["Playlist nhạc cho bé 24'"],
   },
+
   {
     id: "baby-7-12",
     type: "baby",
@@ -143,14 +130,11 @@ export const STAGES: Stage[] = [
     wish: "KỸ NĂNG TUYỆT VỜI NHẤT",
     stampNumber: 4,
     clip: {
-      title: "Your Baby’s Developmental Milestones – 7 to 12 months",
+      title: "Phát triển kỹ năng đầu đời cho bé",
     },
-    extraContent: [
-      "Phòng tránh tai nạn cho bé",
-      "Thiết lập môi trường an toàn cho bé",
-      "Kỹ năng giờ vàng cho bé",
-    ],
+    extraContent: ["Playlist nhạc cho bé 24'"],
   },
+
   {
     id: "baby-13-18",
     type: "baby",
@@ -163,12 +147,13 @@ export const STAGES: Stage[] = [
     wish: "SỰ HỌC TUYỆT VỜI NHẤT",
     stampNumber: 6,
     clip: {
-      title: "12 to 18 Months Old | Child Development Video Series",
+      title: "Thiết lập môi trường sống an toàn cho trẻ",
     },
-    extraContent: ["Tập cho bé ngủ riêng"],
+    extraContent: ["Playlist nhạc cho bé 24'"],
   },
+
   {
-    id: "baby-19-48",
+    id: "baby-19-24",
     type: "baby",
     from: 829,
     to: 1000,
@@ -179,11 +164,8 @@ export const STAGES: Stage[] = [
     wish: "PHƯƠNG PHÁP KÍCH HOẠT TRÍ THÔNG MINH TUYỆT VỜI NHẤT",
     stampNumber: 7,
     clip: {
-      title: "Children’s Speech & Language Therapy – Toddler Talk",
+      title: "Những trò chơi giúp bé phát triển trí thông minh",
     },
-    extraContent: [
-      "Để bé lớn khôn khoẻ mạnh",
-      "Chuẩn bị phòng ngủ cho bé ngủ riêng",
-    ],
+    extraContent: ["Playlist nhạc cho bé 24'"],
   },
 ];
