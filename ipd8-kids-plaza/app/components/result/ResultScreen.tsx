@@ -46,9 +46,13 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
 
   const ageText = `Ngày thứ ${result.value} trong hành trình 1.000 ngày`;
 
+  const benefits = [
+    ...(stage.clip?.title ? [`Video chuyên gia: ${stage.clip.title}`] : []),
+    ...(stage.extraContent ?? []),
+  ];
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fff9fc] via-white to-[#eef9ff] px-4 py-3 md:px-5 md:py-4">
-      {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute left-[4%] top-[8%] text-[#f5d3e2]"
@@ -97,7 +101,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-24px)] w-full max-w-6xl flex-col">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -145,11 +148,8 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           </div>
         </motion.div>
 
-        {/* Main content */}
-        <div className="grid flex-1 min-h-0 gap-4 py-4 md:grid-cols-[1fr_320px] md:gap-5 md:py-4">
-          {/* LEFT COLUMN */}
+        <div className="grid min-h-0 flex-1 gap-4 py-4 md:grid-cols-[1fr_320px] md:gap-5 md:py-4">
           <div className="flex min-h-0 flex-col gap-3">
-            {/* Development */}
             <motion.div
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
@@ -177,7 +177,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               </p>
             </motion.div>
 
-            {/* Wish */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -193,8 +192,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               </h2>
             </motion.div>
 
-            {/* Extra content */}
-            {stage.extraContent && stage.extraContent.length > 0 && (
+            {benefits.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -202,11 +200,11 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 className="shrink-0 rounded-[22px] border border-slate-100 bg-white p-4 shadow-sm md:p-5"
               >
                 <p className="text-[10px] font-bold uppercase tracking-wider text-[#D90064]">
-                  Nội dung khám phá
+                  Quyền lợi mẹ nhận được
                 </p>
 
                 <div className="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
-                  {stage.extraContent.map((item) => (
+                  {benefits.map((item) => (
                     <div
                       key={item}
                       className="flex items-start gap-2 rounded-xl bg-[#eef4f9] px-3 py-2"
@@ -225,7 +223,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               </motion.div>
             )}
 
-            {/* Footer CTA - nằm trong LEFT COLUMN */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -262,16 +259,14 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN - GIẤY ĐIỀU ƯỚC FULL HEIGHT */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex min-h-0 h-full flex-col"
+            className="flex h-full min-h-0 flex-col"
           >
             <div className="flex h-full min-h-0 flex-col rounded-[22px] border border-[#D90064]/10 bg-gradient-to-br from-[#fff5fa] via-white to-[#edfaff] p-4 shadow-sm md:p-5">
-              {/* Title */}
-              <div className="shrink-0 flex items-center gap-3">
+              <div className="flex shrink-0 items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D90064]/10 text-[#D90064]">
                   <PenLine size={20} />
                 </div>
@@ -287,7 +282,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 </div>
               </div>
 
-              {/* Wish paper */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.94, rotate: -1 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -319,7 +313,6 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                 />
               </motion.div>
 
-              {/* Description */}
               <div className="mt-3 shrink-0 rounded-xl bg-white/80 px-3 py-2.5 text-center">
                 <p className="text-xs font-bold leading-5 text-[#204060]">
                   Mẹ hãy viết một điều ước thật đặc biệt dành cho bé nhé!
