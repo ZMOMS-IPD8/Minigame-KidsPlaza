@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IPD8 × Kids Plaza",
+  title: "IPD8",
   description: "Mini Game khám phá hành trình phát triển của bé",
   icons: {
     icon: "/logo-ipd8.png",

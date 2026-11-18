@@ -131,7 +131,7 @@ export default function HomeScreen({ onStart }: HomeScreenProps) {
           <Sparkles size={18} className="text-[#f00070]" />
 
           <span className="text-sm font-bold tracking-[0.16em] text-[#204060]">
-            IPD8 × KIDS PLAZA
+            IPD8
           </span>
         </motion.div>
 
